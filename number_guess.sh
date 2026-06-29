@@ -50,4 +50,4 @@ then
 echo "It's lower than that, guess again:"
 fi
 done
-# games_played (count), best_game (min guesses)
+# games_played (count)
