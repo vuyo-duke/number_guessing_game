@@ -2,6 +2,7 @@
 PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
 
 secretNumber=$(( RANDOM % 1000 + 1 ))
+echo "DEBUG: secret number is $secretNumber"
 echo -e "Enter your username:"
 read USERNAME
 
@@ -41,11 +42,11 @@ UPDATE_BEST=$($PSQL "UPDATE user_table SET best_game = $nOfGuesses WHERE usernam
 fi
 break
 
-elif [[ $GUESS -gt $secretNumber ]]
+elif [[ $GUESS -lt $secretNumber ]]
 then
 echo "It's higher than that, guess again:"
 
-elif [[ $GUESS -lt $secretNumber ]]
+elif [[ $GUESS -gt $secretNumber ]]
 then
 echo "It's lower than that, guess again:"
 fi
